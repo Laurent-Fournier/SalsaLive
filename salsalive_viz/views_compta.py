@@ -1,3 +1,9 @@
+# Installation Lockdown pour accès sécurisé
+# ~ cd ~/www/salsalive_site/
+# ~ source env/bin/activate
+# ~ pip install django-lockdown
+# python manage.py migrate
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -6,11 +12,14 @@ from django.utils.translation import gettext as _
 
 import re
 
+from lockdown.decorators import lockdown
+
 from salsalive_viz.models import Events
 
 # ------------
 # Home page
 # ------------
+@lockdown()
 def index(request):
     return render(
         request,
@@ -29,6 +38,7 @@ def index(request):
 # -----------------
 # Compta All page
 # ----------------
+@lockdown()
 def all(request):
     rows = Events.objects.raw(f"""
         SELECT 
@@ -110,3 +120,4 @@ def all(request):
             'total_balance' : f"{total_balance:.2f}€",
         }
     )
+

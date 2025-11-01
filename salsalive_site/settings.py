@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lockdown',
     'salsalive_viz'
 ]
 
@@ -43,6 +44,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOCKDOWN_PASSWORDS = (os.getenv('LOCKDOWN_PASSWORD'))
+# LOCKDOWN_URL_EXCEPTIONS = ('/admin/', '/media/')
 
 ROOT_URLCONF = 'salsalive_site.urls'
 
