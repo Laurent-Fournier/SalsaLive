@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Comptabilité Salsa Live!{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+
+<div class="row contenu">
+  <div class="container">
+
+    <h2>Comptabilité globale</h2>
+    <ul>
+      <li><a href="/compta/all#soldereel">Toute la comptabilité</a></li>
+    </ul>
+
+    <h2>Bilan comptable</h2>
+    <ul>
+      <li><a href="/comptas/compteresultat/2025-08-01/2026-07-31">Compte de résultat 2025/2026</a></li>
+      <li><a href="/comptas/compteresultat/2024-08-01/2025-07-31">Compte de résultat 2024/2025</a></li>
+      <li><a href="/comptas/compteresultat/2023-08-01/2024-07-31">Compte de résultat 2023/2024</a></li>
+      <li><a href="/comptas/compteresultat/2022-08-01/2023-07-31">Compte de résultat 2022/2023</a></li>
+      <li><a href="/comptas/compteresultat/2021-08-01/2022-07-31">Compte de résultat 2021/2022</a></li>
+      <li><a href="/comptas/compteresultat/2020-08-01/2021-07-31">Compte de résultat 2020/2021</a></li>
+      <li><a href="/comptas/compteresultat/2019-10-18/2020-07-31">Compte de résultat 2019/2020</a></li>
+    </ul>
+    
+    <h2>Comptabilité par session</h2>
+    <ul>
+      <li><a href="/comptas/action/20">La Espina (dimanche) Session septembre / décembre 2025</a></li>
+      <br/>
+      <li><a href="/comptas/action/19">La Espina (dimanche) Session avril / juin 2025</a></li>
+      <li><a href="/comptas/action/18">La Espina (dimanche) Session janvier / mars 2025</a></li>
+      <li><a href="/comptas/action/17">La Espina (dimanche) Session septembre / décembre 2024</a></li>
+      <li><a href="/comptas/action/16">La Espina (dimanche) Session avril / mai 2024</a></li>
+      <li><a href="/comptas/action/15">La Espina (dimanche) Session janvier / mars 2024</a></li>
+      <li><a href="/comptas/action/14">La Espina (dimanche) Session septembre / décembre 2023</a></li>
+      <li><a href="/comptas/action/13">La Espina (dimanche) Session avril / juin 2023</a></li>
+      <li><a href="/comptas/action/12">La Espina (dimanche) Session janvier / mars 2023</a></li>
+      <li><a href="/comptas/action/11">La Espina (dimanche) Session septembre / décembre 2022</a></li>
+      <li><a href="/comptas/action/10">La Espina (dimanche) Session avril / juin 2022</a></li>
+      <li><a href="/comptas/action/9">La Espina (dimanche) Session janvier / mars 2022</a></li>
+      <li><a href="/comptas/action/7">La Espina (dimanche) Session septembre / décembre 2021</a></li>
+      <li><a href="/comptas/action/6">La Espina (dimanche) Session mai / juin 2021</a></li>
+      <li><a href="/comptas/action/5">La Espina (dimanche) Session janvier / mars 2021</a></li>
+      <li><a href="/comptas/action/4">Atelier Salsa (mercredi) Session septembre / décembre 2020</a></li>
+      <li><a href="/comptas/action/3">La Espina (dimanche) Session septembre / décembre 2020</a></li>
+      <li><a href="/comptas/action/2">La Espina Session janvier / mars 2020</a></li>
+      <li><a href="/comptas/action/1">La Espina Session septembre / décembre 2019</a></li>
+    </ul>    
+  </div>  
+</div>
+{% include "footer.html" %}
+{% endblock %}

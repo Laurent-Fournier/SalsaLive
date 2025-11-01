@@ -1,0 +1,24 @@
+<div class="row entete">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <a href="/" aria-label="Retour à la page d'accueil">
+          <img class="img-thumbnail" src="/images/logo-salsalive.png" width="168" height="168" alt="Logo association Salsa Live!"/>
+        </a>
+      </div>
+      <div class="col-10 text-center">
+        <div class="navbar1">Association Salsa Live!</div>
+        <div class="navbar2">Soirées Salsa dansantes avec orchestres</div>
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 {% if page.active == 'home'%}text-active{%else%}text-inactive{%endif%}" href="/">Accueil</a>
+          <a class="p-2 {% if page.active == 'live'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-live">Soirées Salsa Live</a>
+          <a class="p-2 {% if page.active == 'espina'%}text-active{%else%}text-inactive{%endif%}" href="/atelier-orchestre-salsa-la-espina">La Espina</a>
+          <a class="p-2 {% if page.active == 'moulin'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-moulin-bievre-hay-les-roses">Moulin de la Bièvre</a>
+          <a class="p-2 {% if page.active == 'avara'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-avara-hay-les-roses-fresnes">AVARA</a>
+          <a class="p-2 {% if page.active == 'clamart'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-cubaneando-clamart">Clamart</a>
+          <a class="p-2 {% if page.active == 'montsouris'%}text-active{%else%}text-inactive{%endif%}" href="/concerts-salsa-au-parc-montsouris-a-paris">Parc Montsouris</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

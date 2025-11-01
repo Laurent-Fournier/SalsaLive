@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{page.title}}{% endblock %}
+{% block description %}{{page.description}}{% endblock %}
+
+{% block body %}
+{% include "navbar.html" with active=page.nav %}
+<div class="row description">
+  <div class="container">
+    {{page.header|safe}}
+  </div>
+</div>
+
+<main class="row contenu">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+{% for event in events %}
+      <div class="col">
+        <div class="card">
+          <a href="/{{event.id}}/{{event.slug}}">
+            <img src="{{event.images.0.url}}" class="card-img-top" alt="{{event.images.0.alt}}" width="{{event.images.0.width}}" height="{{event.images.0.height}}">
+          </a>
+          <div class="card-body">
+            <a href="/{{event.id}}/{{event.slug}}">
+              <h3 class="card-title vignette">{{event.title1}}</h3>
+              <p class="card-text text-date">{{event.start.date|date:"l d F Y"}}<br/>
+              {{event.location.name}}<br/>
+              {{event.location.postalcode|slice:":2"}} - {{event.location.city}}</p>
+            </a>
+          </div>
+        </div>
+      </div>  
+{% endfor %}
+    </div>
+  </div>  
+</main>
+{% include "footer.html" %}
+{% endblock %}

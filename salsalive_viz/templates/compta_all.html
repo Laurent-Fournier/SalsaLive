@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Comptabilité Salsa Live!{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+
+<div class="row contenu">
+  <div class="container">
+    <a href="/users/logout">Logout</a><br/><br/>
+
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Date</th>
+          <th>Banque</th>
+          <th>Membre</th>
+          <th>Libellé</th>
+          <th>Catégorie</th>
+          <th>Action</th>
+          <th>Débit</th>
+          <th>Crédit</th>
+        </tr>
+      </thead>
+      <tbody>
+{% for line in lines %}
+  {% if line.type == 'separator' %}
+        <tr class="table-secondary">
+          <td colspan="8">{{line.month}}</td>
+        </tr>
+  {% elif line.type == 'real' %}
+        <tr class="table-warning">
+          <td colspan="6">Total réel</td>
+          <td>{{line.total_debit}}</td>
+          <td>{{line.total_credit}}</td>
+        </tr>  
+        <tr class="table-warning">
+          <td colspan="7">Solde réel</td>
+          <td>{{line.total_balance}}</td>
+        </tr>  
+  {% else %}      
+        <tr class="table-light">
+          <td>{{line.date}}</td>
+          <td>{{line.labelbank|default:''}}</td>
+          <td>{{line.member.forname|default:''}} {{line.member.name|default:''}}</td>
+          <td>{{line.label|default:''}}</td>
+          <td>{{line.category|default:''}}</td>
+          <td>{{line.action|default:''}}</td>
+          <td>{{line.debit}}</td>
+          <td>{{line.credit}}</td>
+        </tr>
+  {% endif %}
+{% endfor %}
+        <tr class="table-danger">
+          <td colspan="6">Total prévisionnel</td>
+          <td>{{total_debit}}</td>
+          <td>{{total_credit}}</td>
+        </tr>  
+        <tr class="table-danger">
+          <td colspan="7">Solde prévisionnel</td>
+          <td>{{total_balance}}</td>
+        </tr>  
+      </tbody>  
+    </table>
+  </div> 
+</div>
+{% include "footer.html" %}
+{% endblock %}

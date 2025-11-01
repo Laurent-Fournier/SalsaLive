@@ -1,0 +1,45 @@
+{# Source: https://schema.org/MusicEvent #}
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "MusicEvent",
+  "name" : "{{event.title|safe}}",
+  "description": "{{event.description|safe}}",
+  "image" : "https://salsalive.net/{{event.images.0.url}}",
+  "url" : "https://salsalive.net/{{event.id}}/{{event.slug}}",
+  "startDate" : "{{event.start.date|date:"Y-m-d"}}T{{event.start.time}}:00",
+  "endDate" : "{{event.end.date|date:"Y-m-d"}}T{{event.end.time}}:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location" : {
+    "@type" : "Place",
+    "name" : "{{event.location.name}}",
+    "address" : {
+      "@type" : "PostalAddress",
+      "streetAddress" : "{{event.location.address}}",
+      "addressLocality" : "{{event.location.city|safe}}",
+      "postalCode" : "{{event.location.postalcode}}",
+      "addressCountry" : "FR"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Association Salsalive!",
+    "url": "https://salsalive.net/"
+  },
+  "performer" : [
+    {
+      "@type" : "MusicGroup",
+      "name" : "{{event.orchestra.name}}"
+    }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "name": "Billet soirée salsa",
+    "price": "12",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "{{event.published_date|date:"Y-m-d"}}" 
+    "url" : "https://salsalive.net/{{event.id}}/{{event.slug}}",
+  }  
+}
+</script>

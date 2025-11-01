@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{page.title}}{% endblock %}
+{% block description %}{{page.description}}{% endblock %}
+{% block event %}{{event}}{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+
+<div class="row description">
+  <div class="container">
+    <p>{{event.start.date|date:"l d F Y"|capfirst}} de {{event.start.time}} à {{event.end.time}}</p>
+    <p>{{event.location.name}} - {{event.location.address}}, {{event.location.postalcode}} {{event.location.city}}</p>
+    {% if event.link %}<p>&#127760; <a target="_blank" href="{{event.link}}">Facebook</a></p>{% endif %}
+  </div>  
+</div>
+
+<main class="row contenu">
+  <div class="container">
+    {{event.text|safe}}
+  </div>  
+</main>
+{% include "footer.html" %}
+{% endblock %}
