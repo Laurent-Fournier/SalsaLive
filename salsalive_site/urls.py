@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import handler404
 
 from salsalive_viz import views, views_compta, views_media
+
+handler404 = 'salsalive_viz.views.custom_404'
 
 urlpatterns = [
     path('robots.txt', views.robots_txt, name='robots_txt'),
@@ -22,4 +25,7 @@ urlpatterns = [
     # Images
     path('images/<int:size>/<str:image_name>', views_media.sized_image),
     path('images/<str:image_name>', views_media.image),
+    
+    # test erreur 404
+    path('test-404/', views.test_404),    
 ]
