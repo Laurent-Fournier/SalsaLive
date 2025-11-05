@@ -1,28 +1,48 @@
-<div class="row entete">
-  <div class="container">
-    <div class="row">
-      <div class="col-3 text-center">
-        <a href="/" aria-label="Retour à la page d'accueil">
-          <img class="img-thumbnail" src="/images/logo-salsalive.png" width="132" height="132" alt="Logo association Salsa Live!"/>
-        </a>
-      </div>
-      <div class="col-9 text-center">
-        <div class="navbar1">Association Salsa Live!</div>
-        <div class="navbar2">Soirées Salsa dansantes avec orchestres</div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <nav class="nav d-flex justify-content-between">
-          <a class="p-2 {% if page.active == 'home'%}text-active{%else%}text-inactive{%endif%}" href="/">Accueil</a>
-          <a class="p-2 {% if page.active == 'live'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-live">Soirées Salsa Live</a>
-          <a class="p-2 {% if page.active == 'espina'%}text-active{%else%}text-inactive{%endif%}" href="/atelier-orchestre-salsa-la-espina">La Espina</a>
-          <a class="p-2 {% if page.active == 'moulin'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-moulin-bievre-hay-les-roses">Moulin de la Bièvre</a>
-          <a class="p-2 {% if page.active == 'avara'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-avara-hay-les-roses-fresnes">AVARA</a>
-          <a class="p-2 {% if page.active == 'clamart'%}text-active{%else%}text-inactive{%endif%}" href="/soirees-salsa-cubaneando-clamart">Clamart</a>
-          <a class="p-2 {% if page.active == 'montsouris'%}text-active{%else%}text-inactive{%endif%}" href="/concerts-salsa-au-parc-montsouris-a-paris">Parc Montsouris</a>
-        </nav>
+
+<header class="bg-custom-red">
+  <div class="container py-2">
+    <div class="header-block d-flex align-items-center"><!-- bloc centré -->
+      <div>
+        <img class="img-fluid" src="/images/logo-salsalive.png" width="100" height="100" alt="Logo association Salsa Live!"/>
+      </div>  
+      <div class="text-container">
+        <p class="navbar1">Association Salsa Live!</p>
+        <p class="navbar2">Soirées Salsa dansantes avec orchestres</p>
       </div>
     </div>
   </div>
+</header>  
+
 </div>
+<nav class="navbar navbar-expand-lg navbar-light text-white bg-custom-red">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-white"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'home'%} active{%endif%}" aria-current="page" href="/">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'live'%} active{%endif%}" href="/soirees-salsa-live">Soirées Salsa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'espina'%} active{%endif%}" href="/atelier-orchestre-salsa-la-espina">La Espina</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'moulin'%} active{%endif%}" href="/soirees-salsa-moulin-bievre-hay-les-roses">Moulin de la Bièvre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'avara'%} active{%endif%}" href="/soirees-salsa-avara-hay-les-roses-fresnes">Avara</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'clamart'%} active{%endif%}" href="/soirees-salsa-cubaneando-clamart">Clamart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white{% if page.active == 'montsouris'%} active{%endif%}" href="/concerts-salsa-au-parc-montsouris-a-paris" tabindex="-1" aria-disabled="true">Parc Montsouris</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

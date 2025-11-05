@@ -13,27 +13,43 @@ body, html {
   max-width: 1000px;
   padding: 0 40px;
 }
-.min-width-logo {
-  min-width: 140px;
+.bg-custom-red {
+    background-color: #C91515 !important;
 }
-.entete {
-  color: #FFF;
-  background-color: #C91515;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #FFF;
+.header-block {
+  max-width: 600px;  
+  margin: 0 auto;   /* Centre le bloc sur la page */
+  display: flex;
+  align-items: flex-start; /* Aligne en haut */
+  gap: 1rem; /* Espace entre le logo et le texte */
+}  
+.text-container {
+  flex: 1; /* Prend l'espace disponible */
+  text-align: center; /* Centre le texte horizontalement */  
+}
+nav {
+    font-size: 20px;
+}
+.nav-item {
+  margin-right:5px;
+}
+nav a:hover {
+  background-color: #600E0A;
+}
+.active {
+  background-color: #600E0A;
 }
 .navbar1 {
   font-family: 'Lobster', cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 4.0em;
+  font-size: 3.4em;
+  line-height: 1;
 }
 .navbar2 {
   font-weight: 400;
   font-size: 24px;
   margin-top: -16px;
-  margin-bottom: 3.0em;
 }
 h1 {
   color: #c91515;
@@ -69,18 +85,6 @@ a:hover {
   color: #fff;
   background-color: #c91515;
 }
-nav a {
-  color: #fff;
-  display: block;
-  background-color: #600E0A;
-  text-decoration: none;
-}
-nav a:hover {
-  color: #fff;
-  display: block;
-  background-color: #600E0A;
-  text-decoration: none;
-}
 .description {
   color: #FFF;
   background-color: #600E0A;
@@ -104,7 +108,6 @@ nav a:hover {
 .contenu a:hover {
   text-decoration:underline;
 }
-
 a.vignette {
   margin-bottom: 5px;
 }
@@ -122,7 +125,6 @@ a.vignette {
 .card-body {
     padding: 0.75rem;
 }
-
 figure {
     text-align: center;
 }
