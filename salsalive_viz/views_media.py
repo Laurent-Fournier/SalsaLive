@@ -114,4 +114,3 @@ def image_cached_filepath(width, image_name):
 
     # Find image filepath
     return f'{os.getenv('IMAGES_DIR')}/{width}/{basename_without_extension}.avif'
-
