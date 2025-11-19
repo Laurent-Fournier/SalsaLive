@@ -185,6 +185,7 @@ def event(request, id, slug):
             'title1': row.title1,
             'title2': row.title2,
             'description': row.description,
+            'slug': escape_slug(row.title.replace(" - Salsa Live!", "").lower() + '-' + format(row.startdate, "l-d-F-Y")),
             'text': markdown2.markdown(row.text),
             'link': row.link,
             'location': {
