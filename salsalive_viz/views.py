@@ -43,6 +43,7 @@ def extract_images(text):
     return filtred_images
 
 def escape_slug(slug):
+    slug = slug.lower()
     slug = slug.replace(' ', '-').replace('#', '').replace("'", '-')
     slug = slug.replace('à', 'a')
     slug = slug.replace('é', 'e').replace('ê', 'e').replace('è', 'e')
@@ -126,7 +127,7 @@ def index(request):
                 'city': row.location_city,
             },
             'images': extract_images(row.text),
-            'slug': escape_slug(row.title.replace(" - Salsa Live!", "").lower() + '-' + format(row.startdate, "l-d-F-Y")),
+            'slug': escape_slug(row.title),
         })
     
     return render(
@@ -185,7 +186,7 @@ def event(request, id, slug):
             'title1': row.title1,
             'title2': row.title2,
             'description': row.description,
-            'slug': escape_slug(row.title.replace(" - Salsa Live!", "").lower() + '-' + format(row.startdate, "l-d-F-Y")),
+            'slug': escape_slug(row.title),
             'text': markdown2.markdown(row.text),
             'link': row.link,
             'location': {
@@ -257,18 +258,10 @@ def sitemap(request):
     xml_data += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
 
     for row in rows:
-        if row.is_seo_optimized == 1:
-            slug = escape_slug( row.title.replace(" - Salsa Live!", "").lower() )
-        else:
-            slug = escape_slug(
-                row.title.replace(" - Salsa Live!", "").lower() + 
-                '-' + 
-                format(row.startdate, "l-d-F-Y")
-            )
         #return HttpResponse( type(slug).__name__ )
     
         xml_data += '<url>\n'
-        xml_data += f'  <loc>{host}/{row.id}/{slug}</loc>\n'
+        xml_data += f'  <loc>{host}/{row.id}/{escape_slug(row.title)}</loc>\n'
         xml_data += f'  <lastmod>{row.startdate}</lastmod>\n'
         xml_data += f'  <changefreq>weekly</changefreq>\n'
         #xml_data += f'<priority>{priority}</priority>\n'
