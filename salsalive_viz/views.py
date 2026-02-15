@@ -50,6 +50,7 @@ def escape_slug(slug):
     slug = slug.replace('ï', 'i')
     slug = slug.replace('û', 'u')
     slug = slug.replace('ÿ', 'y')
+    slug = slug.replace('ô', 'o')
     return slug
 
 # ------------
